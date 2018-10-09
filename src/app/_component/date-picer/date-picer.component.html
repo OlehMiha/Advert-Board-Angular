@@ -1,0 +1,20 @@
+<div class="row">
+  <p>Simple datepicker</p>
+  <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+
+  <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Select Today</button>
+  <button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo()">To current month</button>
+  <button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo({year: 2013, month: 2})">To Feb 2013</button>
+
+  <pre>Month: {{ date.month }}.{{ date.year }}</pre>
+  <pre>Model: {{ model | json }}</pre>
+
+</div>
+
+<div class="row">
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker"  [formControl]="date1">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker [(ngModel)]="date1" #picker></mat-datepicker>
+  </mat-form-field>
+</div>

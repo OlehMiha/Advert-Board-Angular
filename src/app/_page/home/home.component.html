@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-12">
+    <button type="button" class="btn btn-success" (click)="addAdvert()">+ Add user</button>
+    <button type="button" class="btn btn-danger" (click)="deleteAdvert()">- Delete user</button>
+  </div>
+</div>
+<div class="row justify-content-center align-items-center">
+  <app-advert-list *ngFor="let advert of adverts; let i = index" [advert] = "advert" (deleteUser)="deleteAdvertId(i)" class="col col-4 text-center"></app-advert-list>
+</div>

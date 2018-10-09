@@ -1,0 +1,20 @@
+<mat-card>
+  <img mat-card-image class="card-img-top" src="{{advert.picture.large}}" alt="{{advert.picture.large}}">
+
+  <div class="card-body">
+    <mat-card-title>{{advert.name.first.toUpperCase()}} {{advert.name.last.toUpperCase()}}</mat-card-title>
+    <mat-card-subtitle>
+      <a href="mailto:{{advert.email}}" class="mail">{{advert.email}}</a>
+    </mat-card-subtitle>
+    <mat-card-content>
+      <br>
+      <a href="tel:{{advert.phone}}" class="phone">{{advert.phone}}</a>
+      <br>
+      <a href="tel:{{advert.phone}}" class="website" target="_blank">{{advert.phone}}</a>
+    </mat-card-content>
+    <mat-card-footer>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-danger" (click)="this.deleteUser.emit();">Delete</button>
+    </mat-card-footer>
+  </div>
+</mat-card>
