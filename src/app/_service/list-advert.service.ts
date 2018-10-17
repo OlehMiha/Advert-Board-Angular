@@ -9,6 +9,8 @@ import {map} from 'rxjs/internal/operators';
 export class ListAdvertService {
 
   adverts = [];
+  favoriteList = [];
+
   constructor(private httpService: HttpService) {
     this.getListAny();
   }
@@ -19,24 +21,18 @@ export class ListAdvertService {
     ).subscribe(adverts => adverts.map(data => this.adverts.push(data)));
   }
 
-  public getAdverts(){
-    return this.adverts;
-  }
-
   public addAdverts(){
     this.adverts.unshift({
-      cell: "(785)-944-9473",
-      dob: {date: "1955-08-04T18:42:43Z", age: 63},
-      email: "mustafa.süleymanoğlu@example.com",
-      gender: "male",
-      id: {name: "", value: null},
-      location: {street: "6680 talak göktepe cd", city: "ordu", state: "mersin", postcode: 84392},
-      login: {uuid: "bb9a4a6d-dc14-4843-a5bc-632003fb52f9", username: "sadrabbit491", password: "eating", salt: "ZXgrIrnO", md5: "0278a30c3498bf405ce940da9bc2b25d"},
-      name: {title: "mr", first: "mustafa", last: "süleymanoğlu"},
-      nat: "TR",
-      phone: "(029)-731-9541",
-      picture: {large: "https://randomuser.me/api/portraits/men/5.jpg", medium: "https://randomuser.me/api/portraits/med/men/5.jpg", thumbnail: "https://randomuser.me/api/portraits/thumb/men/5.jpg"},
-      registered: {date: "2005-01-05T06:58:53Z", age: 13}
+      title: "averts",
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Daewoo_Lanos_front_20080110.jpg/300px-Daewoo_Lanos_front_20080110.jpg",
+      engines_type: "1.5i 8V",
+      fuel_consumption: "7.9",
+      mark: "Daewoo",
+      model: "Lanos",
+      description: "Полностью перебрана ходовая часть, отрегулированная газовая установка, сделан капремонт всей электропроводки. Тонировка задних боковых стёкол, подогрев заднего стекла",
+      year: 1999,
+      price: 2000,
+      mileage: 171000
     });
   }
 
@@ -47,4 +43,5 @@ export class ListAdvertService {
   public deleteAdvert(index) {
     this.adverts.splice(index,1);
   }
+
 }

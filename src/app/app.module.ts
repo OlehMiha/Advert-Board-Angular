@@ -22,6 +22,12 @@ import {
   MatRippleModule,
   MatCardModule
 } from '@angular/material';
+import { FavoritListComponent } from './_component/favorit-list/favorit-list.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
+library.add(fas);
 
 const routs: Routes = [
   {path: 'add', component: DatePicerComponent},
@@ -39,7 +45,8 @@ const routs: Routes = [
     TestPipePipe,
     DatePicerComponent,
     AdvertListComponent,
-    HomeComponent
+    HomeComponent,
+    FavoritListComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +64,7 @@ const routs: Routes = [
     MatCardModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

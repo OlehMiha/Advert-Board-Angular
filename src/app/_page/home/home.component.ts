@@ -4,14 +4,11 @@ import {ListAdvertService} from "../../_service/list-advert.service";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.styl'],
-  providers: [ListAdvertService]
+  styleUrls: ['./home.component.styl']
 })
 export class HomeComponent implements OnInit {
 
-  adverts = this.ListAdvert.getAdverts();
-
-  constructor(private ListAdvert: ListAdvertService) {
+  constructor(public ListAdvert: ListAdvertService) {
 
   }
 
@@ -22,15 +19,22 @@ export class HomeComponent implements OnInit {
 
   public deleteAdvert() {
     this.ListAdvert.deleteAdverts();
-    console.log(this.adverts);
   }
 
-  public deleteAdvertId(index) {
-    this.ListAdvert.deleteAdvert(index);
-    console.log(this.adverts);
+  public addFavoriteList(index) {
+    this.ListAdvert.favoriteList.push(this.ListAdvert.adverts[index]);
+  }
+
+  public deleteFavoriteList(index) {
+    this.ListAdvert.favoriteList = this.ListAdvert.favoriteList.filter(item => item._id !== this.ListAdvert.adverts[index]._id );
   }
 
   ngOnInit() {
+
+  }
+
+  public noAdd(advert){
+    return this.ListAdvert.favoriteList.find(item => item._id === advert._id);
   }
 
 }

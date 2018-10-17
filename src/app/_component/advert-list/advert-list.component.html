@@ -1,20 +1,23 @@
 <mat-card>
-  <img mat-card-image class="card-img-top" src="{{advert.picture.large}}" alt="{{advert.picture.large}}">
+  <div style="height: 200px">
+    <img mat-card-image class="card-img-top" src="{{advert.img}}" alt="{{advert.img}}">
+  </div>
 
   <div class="card-body">
-    <mat-card-title>{{advert.name.first.toUpperCase()}} {{advert.name.last.toUpperCase()}}</mat-card-title>
+    <mat-card-title>{{advert.title.toUpperCase()}}</mat-card-title>
     <mat-card-subtitle>
-      <a href="mailto:{{advert.email}}" class="mail">{{advert.email}}</a>
+      <p>{{advert.mark.toUpperCase()}} {{advert.model.toUpperCase()}}</p>
     </mat-card-subtitle>
     <mat-card-content>
-      <br>
-      <a href="tel:{{advert.phone}}" class="phone">{{advert.phone}}</a>
-      <br>
-      <a href="tel:{{advert.phone}}" class="website" target="_blank">{{advert.phone}}</a>
+      <p><b>Год выпуска:</b> {{advert.year}}</p>
+      <p><b>Двигатель:</b> {{advert.engines_type}}</p>
+      <p><b>Расход:</b> {{advert.fuel_consumption}} л. / 100км.</p>
+      <p><b>Пробег:</b> {{advert.mileage}} км.</p>
+      <p><b>Цена:</b> {{advert.price}} $</p>
     </mat-card-content>
     <mat-card-footer>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-danger" (click)="this.deleteUser.emit();">Delete</button>
+      <button *ngIf="noAdd" type="button" class="btn btn-success" (click)="clickAdd()">Добавить в избраное</button>
+      <button *ngIf="!noAdd" type="button" class="btn btn-danger" (click)="clickDelete()">Удалить из избраного</button>
     </mat-card-footer>
   </div>
 </mat-card>

@@ -23,15 +23,24 @@
   </nav>
   <div class="content container-fluid">
     <div class="row">
-      <aside class="col col-2">
-        <h1>Сайтбар</h1>
-      </aside>
 
       <main class="col">
         <div class="container">
           <router-outlet></router-outlet>
         </div>
       </main>
+
+      <aside class="col col-2">
+        <h1>Избраное:</h1>
+
+        <app-favorit-list
+          *ngFor="let favorite of ListAdvert.favoriteList; let i = index"
+          [favorite] = "favorite"
+          (deleteFavoriteList)="deleteFavoriteList(i)">
+        </app-favorit-list>
+
+      </aside>
+
     </div>
   </div>
 
