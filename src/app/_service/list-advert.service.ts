@@ -8,6 +8,7 @@ import {map} from 'rxjs/internal/operators';
 })
 export class ListAdvertService {
 
+  query = '';
   adverts = [];
   favoriteList = [];
 
@@ -23,7 +24,7 @@ export class ListAdvertService {
 
   public addAdverts(){
     this.adverts.unshift({
-      title: "averts",
+      title: "Daewoo Lanos",
       img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Daewoo_Lanos_front_20080110.jpg/300px-Daewoo_Lanos_front_20080110.jpg",
       engines_type: "1.5i 8V",
       fuel_consumption: "7.9",

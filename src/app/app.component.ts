@@ -7,7 +7,6 @@ import {ListAdvertService} from "./_service/list-advert.service";
   providers: [ListAdvertService]
 })
 export class AppComponent {
-  title = 'adminka';
 
   constructor(public ListAdvert: ListAdvertService) {
   }

@@ -5,13 +5,13 @@
   </div>
 </div>
 <div class="row justify-content-start align-items-center">
-
-  <app-advert-list *ngFor="let advert of ListAdvert.adverts; let i = index"
-                   [advert] = "advert"
-                   [noAdd]="noAdd(advert) !== undefined ? false : true"
-                   (deleteFavoriteList)="deleteFavoriteList(i)"
-                   (addFavoriteList)="addFavoriteList(i)"
-                   class="col col-3 text-center">
+  <app-advert-list
+    *ngFor="let advert of ListAdvert.adverts | search_filter: ListAdvert.query : 'title'; let i = index"
+    [advert] = "advert"
+    [noAdd]="noAdd(advert) !== undefined ? false : true"
+    (deleteFavoriteList)="deleteFavoriteList(i)"
+    (addFavoriteList)="addFavoriteList(i)"
+    class="col col-3 text-center">
   </app-advert-list>
 
 </div>

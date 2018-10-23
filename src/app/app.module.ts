@@ -26,6 +26,7 @@ import { FavoritListComponent } from './_component/favorit-list/favorit-list.com
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { SearchPipe } from './_pipe/search.pipe';
 
 library.add(fas);
 
@@ -46,7 +47,8 @@ const routs: Routes = [
     DatePicerComponent,
     AdvertListComponent,
     HomeComponent,
-    FavoritListComponent
+    FavoritListComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

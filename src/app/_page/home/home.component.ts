@@ -7,7 +7,7 @@ import {ListAdvertService} from "../../_service/list-advert.service";
   styleUrls: ['./home.component.styl']
 })
 export class HomeComponent implements OnInit {
-
+  query = '';
   constructor(public ListAdvert: ListAdvertService) {
 
   }
